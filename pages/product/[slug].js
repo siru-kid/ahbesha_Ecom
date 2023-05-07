@@ -90,7 +90,11 @@ const ProductDetails = ({ product, products }) => {
       <div className="maylike-products-wrapper">
         <h2>You may also like</h2>
         <div className="marquee">
+          {" "}
+          {/*marquee this allows the yoo may like page spin */}
           <div className="maylike-products-container track">
+            {" "}
+            {/*the track alows it to spin*/}
             {products.map((item) => (
               <Product key={item._id} product={item} />
             ))}
@@ -129,6 +133,8 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   const product = await client.fetch(query);
   const products = await client.fetch(productsQuery);
+
+  console.log(product);
 
   return {
     props: { products, product },
