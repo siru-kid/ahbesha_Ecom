@@ -4,14 +4,14 @@ import Head from "next/head";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, handleSignup, handleSignin }) => {
   return (
     <div className="layout">
       <Head>
         <title>Azmarino Store</title>
       </Head>
       <header>
-        <Navbar />
+        <Navbar handleSignup={handleSignup} handleSignin={handleSignin} />
       </header>
       <main className="main-container">{children}</main>
       <footer>
