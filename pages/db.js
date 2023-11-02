@@ -1,25 +1,13 @@
+// db.js
 const mongoose = require("mongoose");
 
-mongoose
-  .connect("mongodb://localhost:27017/LoginSignUp")
-  .then(() => {
-    console.log("MongoDB connected");
-  })
-  .catch((error) => {
-    console.error("Failed to connect to MongoDB:", error);
-  });
-
-const UserSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
+mongoose.connect("mongodb://127.0.0.1:27017/habeshaecommerce", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
-const User = mongoose.model("User", UserSchema);
-
-module.exports = User;
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
+db.once("open", () => {
+  console.log("Connected to the database");
+});

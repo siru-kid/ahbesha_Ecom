@@ -7,21 +7,9 @@ import "../styles/globals.css";
 import { StateContext } from "../context/StateContext";
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-
-  // Handle navigation to the signup page
-  const handleSignup = () => {
-    router.push("/signUpPage");
-  };
-
-  // Handle navigation to the signin page
-  const handleSignin = () => {
-    router.push("/signin");
-  };
-
   return (
     <StateContext>
-      <Layout handleSignup={handleSignup} handleSignin={handleSignin}>
+      <Layout>
         <Toaster />
         <Component {...pageProps} />
       </Layout>

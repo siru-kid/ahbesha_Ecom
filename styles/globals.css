@@ -565,15 +565,17 @@ padding: 6px;
   font-weight: 500;
   color: #f02d34;
 }
+
 .success-wrapper, .cancel-wrapper{
   background-color: white;
   min-height: 60vh;
+ 
 
 }
 .success, .cancel{
   width: 1000px;
-margin: auto;
-margin-top: 160px;
+  margin: auto;
+  margin-top: 100px;
   background-color: #dcdcdc;
   padding: 50px;
   border-radius: 15px;
@@ -581,6 +583,7 @@ margin-top: 160px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+ 
 }
 
 .success .icon {

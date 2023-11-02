@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { AiOutlineShopping } from "react-icons/ai";
 
@@ -9,65 +9,79 @@ const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
 
   return (
-    <div className="navbar-container">
-      <p className="logo">
-        <Link href="/">Azmarino Shoping</Link>
-      </p>
+    <div class="container-fluid sticky-top">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+          <a href="index.html" class="navbar-brand logo">
+            <p className="">
+              <Link href="/">
+                <img
+                  src="/logo/l.png"
+                  alt="Azmarino Shopping"
+                  className="logo-image"
+                />
+              </Link>
+            </p>
+          </a>
+          <button
+            type="button"
+            class="navbar-toggler ms-auto me-0"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto">
+              <a href="/" class="nav-item nav-link active">
+                Home
+              </a>
 
-      <div className="auth-cart-container">
-        <button
-          type="button"
-          className="cart-icon"
-          onClick={() => setShowCart(true)}
-        >
-          <AiOutlineShopping />
-          <span className="cart-item-qty">{totalQuantities}</span>
-        </button>
+              <a href="product/habesha-gewelery" class="nav-item nav-link">
+                Products
+              </a>
 
-        <div className="auth-button">
-          <Link href="/signUpPage">
-            <button className="auth-link-button">SignUp</button>
-          </Link>
-          <Link href="/signInPage">
-            <button className="auth-link-button">SignIn</button>
-          </Link>
-        </div>
+              <a href="/" class="nav-item nav-link">
+                Contact
+              </a>
+              <Link href="/signin">
+                <a class="nav-item nav-link signin-link">Sign-In</a>
+              </Link>
+              <div className="auth-cart-container">
+                <button
+                  type="button"
+                  className="cart-icon"
+                  onClick={() => setShowCart(true)}
+                >
+                  <AiOutlineShopping />
+                  <span className="cart-item-qty">{totalQuantities}</span>
+                </button>
+              </div>
+
+              {showCart && <Cart />}
+            </div>
+          </div>
+        </nav>
       </div>
-
-      {showCart && <Cart />}
-
       <style jsx>{`
-        .auth-cart-container {
-          display: flex;
-          align-items: center;
-          gap: 15px;
+        .navbar-nav .nav-item:not(:last-child) {
+          margin-right: 20px;
         }
 
-        .auth-button {
-          display: flex;
-          gap: 10px;
+        .signin-link {
+          font-weight: bold;
+          color: #007bff; /* Blue color */
+          text-decoration: none;
+          transition: color 0.3s;
         }
 
-        .auth-link-button {
-          background-color: #dcdcdc;
-          color: black;
-          border: 1px solid white;
-          border-radius: 5px;
-          transition: background-color 1s, font-size 1s;
-        }
-        .auth-button :hover {
-          background-color: #f02d34;
-          font-size: 18px;
-          color: white;
-          border: 1px solid gray;
+        .signin-link:hover {
+          color: red; /* Darker color on hover */
         }
 
-        .cart-icon {
-          /* Add your cart icon styling here */
-        }
-
-        .cart-item-qty {
-          /* Add your cart item quantity styling here */
+        .logo-image {
+          max-width: 150px;
+          height: auto;
         }
       `}</style>
     </div>

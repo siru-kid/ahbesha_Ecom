@@ -17,7 +17,7 @@ const Success = () => {
   }, []);
 
   return (
-    <div className="success-wrapper">
+    <div className="success-wrapper ">
       <div className="success">
         <p className="icon">
           <BsBagCheckFill />
