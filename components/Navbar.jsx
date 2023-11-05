@@ -37,13 +37,13 @@ const Navbar = () => {
                 Home
               </a>
 
-              <a href="product/habesha-gewelery" class="nav-item nav-link">
+              <a href="/product/habesha-gewelery" class="nav-item nav-link">
                 Products
               </a>
+              <Link href="/Contacts">
+                <a className="nav-item nav-link">Contact</a>
+              </Link>
 
-              <a href="/" class="nav-item nav-link">
-                Contact
-              </a>
               <Link href="/signin">
                 <a class="nav-item nav-link signin-link">Sign-In</a>
               </Link>
